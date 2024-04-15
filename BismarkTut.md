@@ -1,24 +1,22 @@
 For more information here is the [bismark documentation](https://github.com/FelixKrueger/Bismark/tree/master/docs/bismark). Always read the manual. 
 
-Below is a summary of commands for this tutorial. We will map our EMSeq data (high and low samples) to TMEB117 cassava genome chromosome 2.  
+Below is a summary of the commands for this tutorial. We will map our EMSeq data (high and low samples) to the TMEB117 cassava genome chromosome 2.
 
-Bismark is split into three main steps:
+Bismark is divided into three main steps:
 
 - Genome preparation
-- Read Alignment
-- Methylation extractor
+- Read alignment
+- Methylation extraction
 
-For this analysis we will use for loops to run all the sample. For one samples we can run all the steps to see the expected outputs before running the for loops. 
+For this analysis, we will use for loops to run all the samples. Before running the for loops, we can run all the steps for one sample to see the expected outputs.
 
 ## Genome preparation 
 
 Create a directory `mkdir genome` in your working directory for the genome. 
 
-
 Run `bismark_genome_preparation`
 
 `bismark_genome_preparation <path_to_genome_folder> `
-
 
 ## Read Alignment 
 
@@ -27,7 +25,6 @@ Run `bismark_genome_preparation`
 **-p** - _threads_  
 **--un** - _write all reads that could not be aligned to a file in the output directory_   
 **--ambiguous** - _write all reads which produce more than one valid alignment with the same number of lowest mismatches or other reads that fail to align uniquely to a file in the output directory_  
-
 
 Create folders we will need to use. 
 
