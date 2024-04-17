@@ -1,6 +1,6 @@
 For more information here is the [bismark documentation](https://github.com/FelixKrueger/Bismark/tree/master/docs/bismark). Always read the manual. 
 
-Below is a summary of the commands for this tutorial. We will map our EMSeq data (high and low samples) to the TMEB117 cassava genome chromosome 2.
+Below is a summary of the commands for this tutorial. We will map our EMSeq data (high and low samples) to the TMEB117 cassava genome chromosome 16.
 
 Bismark is divided into three main steps:
 
@@ -12,11 +12,11 @@ For this analysis, we will use for loops to run all the samples. Before running 
 
 ## Genome preparation 
 
-Create a directory `mkdir genome` in your working directory for the genome. 
+Create a directory `mkdir genome` in your working directory for the genome. Copy chromosome 16 (chr16.fasta) to genome folder `cp data/chr16.fasta genome` 
 
 Run `bismark_genome_preparation`
 
-`bismark_genome_preparation <path_to_genome_folder> `
+`bismark_genome_preparation genome/ `
 
 ## Read Alignment 
 
@@ -28,25 +28,36 @@ Run `bismark_genome_preparation`
 
 Create folders we will need to use. 
 
-`mkdir -p data/high/{bam,dedups,meth} data/low/{bam,dedups,meth}`
+First separate the sample in data folder into high and low
+`mkdir high low` - High samples (A43,A56 and A57) Low samples (A04,A13 and A21)
+`mv A43_R* A56_R* A57_R* high/`
+`mv A04_R* A13_R* A21_R* low/`
+Create folder to run bismark:
+`mkdir -p result/high/{bam,dedups,meth} result/low/{bam,dedups,meth}`
 
-using `pwd` save the paths of folders for the ```for loop```
+We will create a bash script to run bismark for high and low samples separetely. 
 
-`genome=<path_to_genome_folder>`  
-`high=<path_to_high_folder>`  
-`bam=<path_to_bam_folder_in_high>`  
-`dedups=path_to_dedups_folder_in_high`  
-`meth=path_to_meth_folder_in_high`  
+`nano mapHigh.sh`
 
+```#!/bin/bash
+
+#define paths
+genome="/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/genome"  
+high="/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/data/high"  
+bam="/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/bam" 
+dedups="/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/dedups"
+meth="/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/meth"
+
+```
 Running mapping 
 
 ```
-for i in "$high"/*_R1_001_val_1.fq.gz;
+for i in "$high"/*_R1_course.fastq.gz;
 
 do
-   prefix=$(basename $i _R1_001_val_1.fq.gz)
-   bismark -p 12 --un --ambiguous --genome "$genome" -1 "$high"/"${prefix}"_R1_001_val_1.fq.gz \
-   -2 "$high"/"${prefix}"_R2_001_val_2.fq.gz -o "$bam";
+   prefix=$(basename $i _R1_course.fastq.gz)
+   bismark -p 2 --un --ambiguous --genome "$genome" -1 "$high"/"${prefix}"_R1_course.fastq.gz \
+   -2 "$high"/"${prefix}"_R2_course.fastq.gz -o "$bam";
 
 done
 ```
