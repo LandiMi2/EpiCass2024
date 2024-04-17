@@ -13,16 +13,17 @@ Sample IDs:
 
 #### Running QC 
 
-mkdir QC trim
+Create a folder for quality control `mkdir QC trim`
+Run the quality control for all samples in the data folder and save the outputs in the QC folder with the below command. FastQC tool used for this tuturial is `FastQC v0.12.1`
 
-fastqc -o QC/ data/*.fastq.gz
+`fastqc -o QC/ data/*.fastq.gz`  
 
-FastQC v0.12.1
+Output foles for each file:  
+ - A04_R1_course_fastqc.html  
+ - A04_R1_course_fastqc.zip
 
-cd QC/
+ Download/copy the html file to your local computer to view on your browser.  
+`scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/QC/*.html" ./`
 
-multiqc .
 
-scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/QC/*.html" ./
 
-View multQC file 
