@@ -25,5 +25,11 @@ Output foles for each file:
  Download/copy the html file to your local computer to view on your browser.  
 `scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/QC/*.html" ./`
 
+Questions:
+1. After inversitgating the QC plots, do we really have to do a trimming step?
+
+Check out sample A04 sequence quality and sequence content 
+
+
 
 
