@@ -36,7 +36,7 @@ What do you think?
 
 
 ### Running Trim Galore
-Trim Galore is a wrapper around [Cutadapt](Trim Galore is a wrapper around Cutadapt and FastQC) and FastQC. 
+Trim Galore is a wrapper around [Cutadapt](https://github.com/marcelm/cutadapt) and FastQC. 
 Important flag while using Trim Galore 
 
 ```trim_galore --paired --clip_R1 2 --clip_R2 2 --three_prime_clip_R1 2 --three_prime_clip_R2 2 --fastqc --quality 20 -j 6 --illumina --length 100 <R1.fastq.gz> <R2.fastq.gz>```
