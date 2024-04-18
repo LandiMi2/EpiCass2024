@@ -30,7 +30,7 @@ Questions:
 
 Check out sample A04 sequence quality and sequence content 
 ![Per Base Sequence Quality](https://github.com/LandiMi2/EpiCass2024/blob/main/seqQuality.png?raw=true)
-![Per Base Sequence Contet](https://github.com/LandiMi2/EpiCass2024/blob/main/seqContent.png?raw=true)
+![Per Base Sequence Content](https://github.com/LandiMi2/EpiCass2024/blob/main/images/seqContent.png?raw=true)
 
 What do you think?
 
