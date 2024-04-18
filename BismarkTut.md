@@ -115,7 +115,7 @@ Download the reports
 `scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/report/*.html" ./`
 
 Check the report before downloading the CX report file generated in the `meth` folder. Most importantly is the M-Bias plot. 
-![MBias](https://github.com/LandiMi2/EpiCass2024/blob/main/MBias-A04.png?raw=true)
+![MBias](https://github.com/LandiMi2/EpiCass2024/blob/main/images/MBias-A04.png?raw=true)
 
 Looks good! 
 
