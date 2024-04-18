@@ -29,7 +29,7 @@ Questions:
 1. After inversitgating the QC plots, do we really have to do a trimming step?
 
 Check out sample A04 sequence quality and sequence content 
-![Per Base Sequence Quality](https://github.com/LandiMi2/EpiCass2024/blob/main/seqQuality.png?raw=true)
+![Per Base Sequence Quality](https://github.com/LandiMi2/EpiCass2024/blob/main/images/seqQuality.png?raw=true)
 ![Per Base Sequence Content](https://github.com/LandiMi2/EpiCass2024/blob/main/images/seqContent.png?raw=true)
 
 What do you think?
