@@ -67,11 +67,11 @@ Removing duplicates
 `deduplicate_bismark -p <path_to_bam_file>`
 
 ```
-for i in "$bam"/*_R1_001_val_1_bismark_bt2_pe.bam;
+for i in "$bam"/*_R1_course_bismark_bt2_pe.bam;
 
 do
-   prefix=$(basename $i _R1_001_val_1_bismark_bt2_pe.bam)
-   deduplicate_bismark -p "$bam"/"${prefix}"_R1_001_val_1_bismark_bt2_pe.bam \
+   prefix=$(basename $i _R1_course_bismark_bt2_pe.bam)
+   deduplicate_bismark -p "$bam"/"${prefix}"_R1_course_bismark_bt2_pe.bam \
    --output_dir "$dedups";
 
 done
@@ -91,12 +91,12 @@ done
 
 
 ```
-for i in "$dedups"/*_R1_001_val_1_bismark_bt2_pe.deduplicated.bam;
+for i in "$dedups"/*_R1_course_bismark_bt2_pe.deduplicated.bam;
 
 do
-   prefix=$(basename $i _R1_001_val_1_bismark_bt2_pe.deduplicated.bam)
+   prefix=$(basename $i _R1_course_bismark_bt2_pe.deduplicated.bam)
    bismark_methylation_extractor -p --no_overlap --cytosine_report --CX --comprehensive --genome_folder "$genome" \
-   --ignore 6 --ignore_r2 7 "$dedups"/"${prefix}"_R1_001_val_1_bismark_bt2_pe.deduplicated.bam -o "$meth" ;
+   --ignore 6 --ignore_r2 7 "$dedups"/"${prefix}"_R1_course_bismark_bt2_pe.deduplicated.bam -o "$meth" ;
 
 done
 ```
@@ -105,9 +105,19 @@ done
 
 `bismark2report --alignment_report <path_to_alignment_report> --dedup_report <path_to_deduplication_report> --mbias_report <path_to_MBias_report>`
 
+```bismark2report --alignment_report ../bam/A43_R1_course_bismark_bt2_PE_report.txt --dedup_report ../dedups/A43_R1_course_bismark_bt2_pe.deduplication_report.txt --mbias_report ../meth/A43_R1_course_bismark_bt2_pe.deduplicated.M-bias.txt -o A43_report.html```
+
+```bismark2report --alignment_report ../bam/A56_R1_course_bismark_bt2_PE_report.txt --dedup_report ../dedups/A56_R1_course_bismark_bt2_pe.deduplication_report.txt --mbias_report ../meth/A56_R1_course_bismark_bt2_pe.deduplicated.M-bias.txt -o A56_report.html```
+
+```bismark2report --alignment_report ../bam/A57_R1_course_bismark_bt2_PE_report.txt --dedup_report ../dedups/A57_R1_course_bismark_bt2_pe.deduplication_report.txt --mbias_report ../meth/A57_R1_course_bismark_bt2_pe.deduplicated.M-bias.txt -o A57_report.html```
+
+Download the reports 
+`scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/report/*.html" ./`
+
+Check the report before downloading the CX report file generated in the `meth` folder. Most importantly is the M-Bias plot. 
 
 Outputs to use for the downstream analysis - R:
-`{fileName}_bismark_bt2_pe.deduplicated.CX_report.txt`
+`A43_R1_course_bismark_bt2_pe.deduplicated.CX_report.txt`
 
 
 
