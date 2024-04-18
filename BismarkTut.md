@@ -115,10 +115,18 @@ Download the reports
 `scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/report/*.html" ./`
 
 Check the report before downloading the CX report file generated in the `meth` folder. Most importantly is the M-Bias plot. 
+![MBias](https://github.com/LandiMi2/EpiCass2024/blob/main/MBias-A04.png?raw=true)
 
-Outputs to use for the downstream analysis - R:
-`A43_R1_course_bismark_bt2_pe.deduplicated.CX_report.txt`
+Looks good! 
 
+We will either work on the server Rstudion or our own local machine. The methylation calls are not huge files (about 400M).
+
+Download to your local `mkdir -p methCalls/high methCalls/low`
+`cd methCalls/high`  
+`scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/high/meth/*.CX_report.txt" ./`  
+`scp -r  mlandi@172.30.2.200:"/data01/mlandi/EM-SeqDataAnalysis/EpiCassWorshop2024/trial/result/low/meth/*.CX_report.txt" ./`
+
+Let's dive into some R coding fun! Catch you in the next tutorial!
 
 
 
