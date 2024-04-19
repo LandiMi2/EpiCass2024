@@ -29,11 +29,11 @@ Run `bismark_genome_preparation`
 Create folders we will need to use. 
 
 First separate the sample in data folder into high and low
-`mkdir high low` - High samples (A43,A56 and A57) Low samples (A04,A13 and A21)
-`mv A43_R* A56_R* A57_R* high/`
-`mv A04_R* A13_R* A21_R* low/`
-Create folder to run bismark:
-`mkdir -p result/high/{bam,dedups,meth} result/low/{bam,dedups,meth}`
+`mkdir high low` - High samples (A43,A56 and A57) Low samples (A04,A13 and A21)  
+`mv A43_R* A56_R* A57_R* high/`  
+`mv A04_R* A13_R* A21_R* low/`  
+Create folder to run bismark:  
+`mkdir -p result/high/{bam,dedups,meth} result/low/{bam,dedups,meth}`  
 
 We will create a bash script to run bismark for high and low samples separetely. 
 
