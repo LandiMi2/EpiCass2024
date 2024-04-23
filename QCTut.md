@@ -37,9 +37,22 @@ What do you think?
 
 ### Running Trim Galore
 Trim Galore is a wrapper around [Cutadapt](https://github.com/marcelm/cutadapt) and FastQC. 
-Important flag while using Trim Galore 
+We will run a simple for-loop to run TrimGalore to all of our samples. 
 
-```trim_galore --paired --clip_R1 2 --clip_R2 2 --three_prime_clip_R1 2 --three_prime_clip_R2 2 --fastqc --quality 20 --polyA --illumina --length 100 <R1.fastq.gz> <R2.fastq.gz>```
+```
+#!bin/bash
+
+data="/data01/dataRepository/publicData/EpiCassWorkshops/2024/DNAMeth2"
+
+for i in "$data"/*_R1_course2.fastq.gz;
+do
+	prefix=$(basename $i _R1_course2.fastq.gz)
+	trim_galore --paired --clip_R1 2 --clip_R2 2 --three_prime_clip_R1 2 --three_prime_clip_R2 2 \
+	--fastqc --quality 20 --polyA --illumina --length 100 "$data"/"${prefix}"_R1_course2.fastq.gz \
+	"$data"/"${prefix}"_R2_course2.fastq.gz
+
+done
+```
  
 
 
