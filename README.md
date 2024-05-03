@@ -1,4 +1,4 @@
-## Advanced Bioinformatics Workshop - 21st to 24th May 2014
+## Advanced Bioinformatics Workshop - 21st to 24th May 2024
 
 ### DNA methylation profiling in plants
 
